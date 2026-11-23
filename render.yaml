@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: melogap-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: REQUIRED_CHANNELS
+        value: "@Dosti,@MeloGapM"
+      - key: BOT_USERNAME
+        value: MeloGap
+      - key: PAYMENT_GATEWAY_URL
+        value: https://example.com/payment-gateway-placeholder
